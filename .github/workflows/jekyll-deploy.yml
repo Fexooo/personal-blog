@@ -60,4 +60,5 @@ jobs:
           local-dir: _site/
           protocol: ftps
           security: strict
+          log-level: verbose
           port: 21
