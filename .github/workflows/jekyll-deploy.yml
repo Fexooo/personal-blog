@@ -51,12 +51,13 @@ jobs:
             \-\-disable-external \
             \-\-ignore-urls "/^http:\/\/127.0.0.1/,/^http:\/\/0.0.0.0/,/^http:\/\/localhost/"
 
-      - name: FTP Deployer
-        uses: bayssmekanique/action-simple-file-upload@v2
+      - name: Sync files
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.5
         with:
-          user: ${{ secrets.SERVER_USERNAME }}
+          server: ${{ secrets.SERVER_HOST }}
+          username: ${{ secrets.SERVER_USERNAME }}
           password: ${{ secrets.SERVER_PASSWORD }}
-          host: ${{ secrets.SERVER_HOST }}
-          src: _site/*
-          dest: ${{ secrets.SERVER_PATH }}
-          secure: true
+          local-dir: _site/
+          server-dir: ${{ secrets.SERVER_PATH }}
+          protocol: ftps
+          security: strict
