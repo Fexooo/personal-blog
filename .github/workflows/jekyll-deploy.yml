@@ -61,3 +61,4 @@ jobs:
           server-dir: ${{ secrets.SERVER_PATH }}
           protocol: ftps
           security: strict
+          port: 21
