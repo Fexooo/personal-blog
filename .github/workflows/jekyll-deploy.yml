@@ -52,16 +52,11 @@ jobs:
             \-\-ignore-urls "/^http:\/\/127.0.0.1/,/^http:\/\/0.0.0.0/,/^http:\/\/localhost/"
 
       - name: FTP Deployer
-        uses: sand4rt/ftp-deployer@v1.4
+        uses: bayssmekanique/action-simple-file-upload@v2
         with:
-          sftp: true
-          host: ${{ secrets.SERVER_HOST }}
-          port: 22
-          username: ${{ secrets.SERVER_USERNAME }}
+          user: ${{ secrets.SERVER_USERNAME }}
           password: ${{ secrets.SERVER_PASSWORD }}
-          remote_folder: ${{ secrets.SERVER_PATH }}
-          local_folder: "./_site/"
-          cleanup: false
-          include: '[ "*", "**/*" ]'
-          exclude: '[".htaccess", ".github/**", ".git/**", "*.env"]'
-          pasive: true
+          host: ${{ secrets.SERVER_HOST }}
+          src: _site/*.*
+          dest: ${{ secrets.SERVER_PATH }}
+          secure: true
