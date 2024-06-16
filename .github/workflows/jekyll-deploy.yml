@@ -50,7 +50,8 @@ jobs:
           bundle exec htmlproofer _site \
             \-\-disable-external \
             \-\-ignore-urls "/^http:\/\/127.0.0.1/,/^http:\/\/0.0.0.0/,/^http:\/\/localhost/"
-
+      - name: Workaround for deploy
+        run: touch _site/ftp-deploy-sync-state.json
       - name: Sync files
         uses: SamKirkland/FTP-Deploy-Action@v4.3.5
         with:
