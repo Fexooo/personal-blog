@@ -58,7 +58,6 @@ jobs:
           username: ${{ secrets.SERVER_USERNAME }}
           password: ${{ secrets.SERVER_PASSWORD }}
           local-dir: _site/
-          server-dir: ${{ secrets.SERVER_PATH }}
           protocol: ftps
           security: strict
           port: 21
