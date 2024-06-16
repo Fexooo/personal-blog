@@ -57,6 +57,6 @@ jobs:
           user: ${{ secrets.SERVER_USERNAME }}
           password: ${{ secrets.SERVER_PASSWORD }}
           host: ${{ secrets.SERVER_HOST }}
-          src: _site/*.*
+          src: _site/*
           dest: ${{ secrets.SERVER_PATH }}
           secure: true
