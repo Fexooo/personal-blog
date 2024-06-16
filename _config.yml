@@ -16,10 +16,10 @@ timezone:
 
 title: Felix Katzenberg # the main title
 
-tagline: Informatik Student, Studentische Hilfskraft, Privatpilot # it will display as the sub-title
+tagline: CS Student, Student Assistant, Private Pilot # it will display as the sub-title
 
 description: >- # used by seo meta and the atom feed
-  Persönlicher Blog und Portfolio
+  Personal Blog and Portfolio
 
 # Fill in the protocol & hostname for your site.
 # e.g. 'https://username.github.io', note that it does not end with a '/'.
