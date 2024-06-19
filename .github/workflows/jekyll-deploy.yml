@@ -55,9 +55,9 @@ jobs:
         with:
           name: personal-blog
           path: _site/
-          host: ${{ secrets.FTP_HOST }}
+          host: ${{ secrets.SERVER_HOST }}
           port: 21
-          username: ${{ secrets.FTP_USERNAME }}
-          password: ${{ secrets.FTP_PASSWORD }}
+          username: ${{ secrets.SERVER_USERNAME }}
+          password: ${{ secrets.SERVER_PASSWORD }}
           secure: true
-          remote-path: ${{ secrets.FTP_PATH }}
+          remote-path: ${{ secrets.SERVER_PATH }}
