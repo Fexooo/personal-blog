@@ -50,15 +50,14 @@ jobs:
           bundle exec htmlproofer _site \
             \-\-disable-external \
             \-\-ignore-urls "/^http:\/\/127.0.0.1/,/^http:\/\/0.0.0.0/,/^http:\/\/localhost/"
-      - name: Workaround for deploy
-        run: touch _site/ftp-deploy-sync-state.json
-      - name: Sync files
-        uses: SamKirkland/FTP-Deploy-Action@v4.3.5
+      - name: Deploy
+        uses: sokuhatiku/ftp-upload-artifact@v1
         with:
-          server: ${{ secrets.SERVER_HOST }}
-          username: ${{ secrets.SERVER_USERNAME }}
-          password: ${{ secrets.SERVER_PASSWORD }}
-          local-dir: _site/
-          protocol: ftps
-          security: strict
+          name: personal-blog
+          path: _site/
+          host: ${{ secrets.FTP_HOST }}
           port: 21
+          username: ${{ secrets.FTP_USERNAME }}
+          password: ${{ secrets.FTP_PASSWORD }}
+          secure: true
+          remote-path: ${{ secrets.FTP_PATH }}
