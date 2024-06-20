@@ -57,3 +57,4 @@ jobs:
           user: ${{ secrets.SERVER_USERNAME }}
           password: ${{ secrets.SERVER_PASSWORT }}
           local_dir: "./_site"
+          remote_dir: ${{ secrets.SERVER_PATH }}
