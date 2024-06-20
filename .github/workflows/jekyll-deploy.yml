@@ -50,13 +50,10 @@ jobs:
           bundle exec htmlproofer _site \
             \-\-disable-external \
             \-\-ignore-urls "/^http:\/\/127.0.0.1/,/^http:\/\/0.0.0.0/,/^http:\/\/localhost/"
-      - name: Upload a Build Artifact via FTP(S) Protocol
-        uses: sokuhatiku/ftp-upload-artifact@v1.0.0
+      - name: Deploy Website
+        uses: airvzxf/ftp-deployment-action@latest
         with:
-          path: _site/
-          host: ${{ secrets.SERVER_HOST }}
-          port: 21
-          username: ${{ secrets.SERVER_USERNAME }}
-          password: ${{ secrets.SERVER_PASSWORD }}
-          secure: true
-          remote-path: ${{ secrets.SERVER_PATH }}
+          server: ${{ secrets.SERVER_HOST }}
+          user: ${{ secrets.SERVER_USERNAME }}
+          password: ${{ secrets.SERVER_PASSWORT }}
+          local_dir: "./_site"
