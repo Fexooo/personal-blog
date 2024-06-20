@@ -51,10 +51,11 @@ jobs:
             \-\-disable-external \
             \-\-ignore-urls "/^http:\/\/127.0.0.1/,/^http:\/\/0.0.0.0/,/^http:\/\/localhost/"
       - name: Deploy Website
-        uses: airvzxf/ftp-deployment-action@latest
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.5
         with:
           server: ${{ secrets.SERVER_HOST }}
-          user: ${{ secrets.SERVER_USERNAME }}
-          password: ${{ secrets.SERVER_PASSWORT }}
-          local_dir: "./_site"
-          remote_dir: ${{ secrets.SERVER_PATH }}
+          username: ${{ secrets.SERVER_USERNAME }}
+          password: ${{ secrets.SERVER_PASSWORD }}
+          protocol: ftps
+          local-dir: ./_site/
+          security: strict
